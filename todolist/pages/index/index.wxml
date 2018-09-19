@@ -1,0 +1,38 @@
+<view class="page">
+    
+    <view class="page1">
+        <view class="weui-cells weui-cells_after-title">
+            <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                <view class="font">{{time}}</view>
+            </navigator></view>
+            </view>
+
+    <view class="page__bd">
+        <view class="weui-cells weui-cells_after-title">
+          <view wx:for="{{dataList}}" wx:for-index="key" wx:for-item="value">
+         
+             <navigator wx:if="{{value.condition==1}}" url="../detail/detail?keyname={{value.keyname}}" class="weui-cell weui-cell_access"  hover-class="weui-cell_active">
+               
+                <view  class="weui-cell__bd "> {{value.taskname}}</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </navigator>
+           </view>
+           </view></view>
+
+           <button class="weui-btn" type="primary"  plain="true"  bindtap="btn">{{showOrHidden?'显示历史任务':'隐藏历史任务'}}</button>
+
+          <view wx:for="{{dataList}}" wx:for-index="key" wx:for-item="value">   
+          <navigator wx:if="{{value.condition==2}}" url="../detail/detail?keyname={{value.keyname}}" class="{{showOrHidden?'hide':'show'}}" hover-class="weui-cell_active">
+           <view  class="weui-cell__bd "> {{value.taskname}}</view>
+          <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </navigator>
+</view>
+
+
+
+            <navigator url="../addTask/addTask" >
+                <view >
+                   <image class="add_icon" src="../../i/add.png"></image>
+                 </view>
+            </navigator>
+</view>
